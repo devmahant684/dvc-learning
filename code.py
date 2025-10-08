@@ -1,18 +1,18 @@
 import os
 import pandas as pd
-from sklearn.datasets import load_iris
 
-# 1. Create a "data" directory if it doesn't exist
-data_dir = "data"
-os.makedirs(data_dir, exist_ok=True)
+def main():
+    data_dir = "data"
+    os.makedirs(data_dir, exist_ok=True)
 
-# 2. Load Iris dataset
-iris = load_iris()
-df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
-df['target'] = iris.target
+    # Version 2: 5 friends
+    friends = ["Alice", "Bob", "Charlie", "David", "Eva"]
+    df = pd.DataFrame({"name": friends})
 
-# 3. Save dataset to CSV inside "data" folder
-csv_path = os.path.join(data_dir, "iris.csv")
-df.to_csv(csv_path, index=False)
+    csv_path = os.path.join(data_dir, "friends.csv")
+    df.to_csv(csv_path, index=False)
 
-print(f"Dataset saved to {csv_path}")
+    print(f"✅ Friends list (v2) saved to {csv_path}")
+
+if __name__ == "__main__":
+    main()
